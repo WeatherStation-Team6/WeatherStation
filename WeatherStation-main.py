@@ -65,5 +65,6 @@ while True:
 		# Debug use only
 		print()
 		print()
+		now = datetime.datetime.now().time()
 		print('Loop Ending Recorded At:', now)
 		pervDate = datetime.datetime.today().date()
