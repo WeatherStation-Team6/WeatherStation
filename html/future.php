@@ -6,9 +6,9 @@
 	try{
 		 // Creating a new connection.
 		// Replace your-hostname, your-db, your-username, your-password according to your database
-		$link = new \PDO(   'mysql:host=87.92.64.6;dbname=projekti;charset=utf8mb4', //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
-							'projekti', //'root',
-							'Saaasema', //'',
+		$link = new \PDO(   'mysql:host=;dbname=;charset=utf8mb4', //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
+							'', //'root',
+							'', //'password',
 							array(
 								\PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 								\PDO::ATTR_PERSISTENT => false
