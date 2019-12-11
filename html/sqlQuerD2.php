@@ -2,8 +2,8 @@
 
 	function sqlDataD2()
 	{
-		    $conn = mysqli_connect("host", "dbname", "dbUser", "dbPassword");
-    $sql = "[SQL QUERY HERE]";
+		    $conn = mysqli_connect("87.92.64.6", "projekti", "Saaasema", "projekti");
+    $sql = "SELECT Date3, Temp3, AirP3, Humid3 FROM Device3 ORDER BY idDevice3 Desc Limit 336";
 
     $result = mysqli_query($conn, $sql);
 

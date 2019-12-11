@@ -6,16 +6,16 @@
 	try{
 		 // Creating a new connection.
 		// Replace your-hostname, your-db, your-username, your-password according to your database
-		$link = new \PDO(   'mysql:host=[host];dbname=[dbname];charset=utf8mb4', //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
-							'', //'root',
-							'', //'',
+		$link = new \PDO(   'mysql:host=87.92.64.6;dbname=projekti;charset=utf8mb4', //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
+							'projekti', //'root',
+							'Saaasema', //'',
 							array(
 								\PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 								\PDO::ATTR_PERSISTENT => false
 							)
 						);
 
-		$handle = $link->prepare('[SQL QUERY HERE]'); 
+		$handle = $link->prepare('SELECT Date, Temp, AirP, Humid FROM Ennuste ORDER BY idEnnuste DESC LIMIT 7 OFFSET 7');
 		$handle->execute();
 		$result = $handle->fetchAll(\PDO::FETCH_OBJ);
 
@@ -23,7 +23,7 @@
 		foreach($result as $row){
 			$timestamp = strtotime($row->Date);
 
-			array_push($temperature, array("x"=> $timestamp*1000, "y"=> $row->Temp)); 
+			array_push($temperature, array("x"=> $timestamp*1000, "y"=> $row->Temp));
 			array_push($humidity, array("x"=> $timestamp*1000, "y"=> $row->Humid));
 			array_push($airpressure, array("x"=> $timestamp*1000, "y"=> $row->AirP));
 

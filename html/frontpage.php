@@ -6,9 +6,9 @@
 	try{
 		 // Creating a new connection.
 		// Replace your-hostname, your-db, your-username, your-password according to your database
-		$link = new \PDO(   'mysql:host=;dbname=;charset=utf8mb4', //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
-							'', //'username',
-							'', //'password',
+		$link = new \PDO(   'mysql:host=87.92.64.6;dbname=projekti;charset=utf8mb4', //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
+							'projekti', //'root',
+							'Saaasema', //'',
 							array(
 								\PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 								\PDO::ATTR_PERSISTENT => false
@@ -16,7 +16,7 @@
 						);
 
     
-		$handle = $link->prepare('[SQL QUERY HERE]');
+		$handle = $link->prepare('select Date, CurTemp, CurAirP, CurAirHumid from Current ORDER BY idCurrent DESC Limit 10');
 		$handle->execute();
 		$result = $handle->fetchAll(\PDO::FETCH_OBJ);
 
@@ -199,10 +199,10 @@
     <div class=data>
         <?php
 
-        $conn = mysqli_connect("host", "dbname", "dbUser", "dbPassword");
+        $conn = mysqli_connect("87.92.64.6", "projekti", "Saaasema", "projekti");
 
 
-        $sql = "[SQL QUERY HERE]";
+        $sql = "SELECT Date, CurTemp, CurAirP, CurAirHumid FROM Current ORDER BY idCurrent Desc Limit 1";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0)
