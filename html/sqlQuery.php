@@ -2,7 +2,7 @@
 
 	function sqlData($year)
 	{
-		$conn = mysqli_connect("87.92.64.6", "projekti", "Saaasema", "projekti");
+		$conn = mysqli_connect("hostIP", "dbuser", "dbpassword", "dbname");
 		$sql = "SELECT Date, Temp, AirP, Humid FROM HistoricalWeb Where YEAR(Date) = $year ORDER BY idHistoricalWeb Desc Limit 365";
 
 		$result = mysqli_query($conn, $sql);
